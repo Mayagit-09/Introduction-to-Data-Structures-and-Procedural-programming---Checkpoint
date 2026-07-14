@@ -1,0 +1,52 @@
+ALGORITHM Orthogonal_Procedure
+
+VAR
+    v1 : ARRAY_OF INTEGER[10];
+    v2 : ARRAY_OF INTEGER[10];
+    n : INTEGER;
+    i : INTEGER;
+    ps : INTEGER;
+
+PROCEDURE dot_product(v1, v2, n, VAR ps)
+
+VAR
+    i : INTEGER;
+
+BEGIN
+
+    ps <- 0
+
+    FOR i FROM 0 TO n-1 DO
+        ps <- ps + (v1[i] * v2[i])
+    END_FOR
+
+END
+
+BEGIN
+
+    Write("Enter the size of the vectors: ")
+    Read(n)
+
+    Write("Enter the elements of the first vector:")
+
+    FOR i FROM 0 TO n-1 DO
+        Read(v1[i])
+    END_FOR
+
+    Write("Enter the elements of the second vector:")
+
+    FOR i FROM 0 TO n-1 DO
+        Read(v2[i])
+    END_FOR
+
+    Call dot_product(v1, v2, n, ps)
+
+    Write("Dot product = ", ps)
+
+    IF ps = 0 THEN
+        Write("The vectors are orthogonal.")
+    ELSE
+        Write("The vectors are not orthogonal.")
+    END_IF
+
+END
